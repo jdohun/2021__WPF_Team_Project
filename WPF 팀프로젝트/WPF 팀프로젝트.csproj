@@ -58,9 +58,17 @@
     <Compile Include="Acceptance.xaml.cs">
       <DependentUpon>Acceptance.xaml</DependentUpon>
     </Compile>
+    <Compile Include="classes\Acceptance.cs" />
+    <Compile Include="classes\Customer.cs" />
+    <Compile Include="classes\Record.cs" />
+    <Compile Include="classes\Vaccine.cs" />
     <Compile Include="CustomerRecord.xaml.cs">
       <DependentUpon>CustomerRecord.xaml</DependentUpon>
     </Compile>
+    <Compile Include="classes\DataManager.cs" />
+    <Compile Include="classes\Ibiinhugwa.cs" />
+    <Compile Include="classes\Jeonghyeong_oegwa.cs" />
+    <Compile Include="classes\Naegwa.cs" />
     <Compile Include="NewCustomer.xaml.cs">
       <DependentUpon>NewCustomer.xaml</DependentUpon>
     </Compile>
