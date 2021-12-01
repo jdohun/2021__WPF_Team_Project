@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace WPF_팀프로젝트 {
     class DataManager {
@@ -20,8 +22,8 @@ namespace WPF_팀프로젝트 {
                 //파일 경로 앞에 @를 넣음으로써 문자열 안에 백슬래시를 문자 그대로 인식하게 됨 그렇지 않으면 Escape문자로 인식하여 두번씩 연속으로 작성해야함 (테스트 결과 일반 슬래시는 상관 없음)
                 // ex) ".\\Books.xml
                 /* 책 목록 읽기 */
-                string booksOutput = File.ReadAllText(@"./Books.xml");
-                XElement booksXElement = XElement.Parse(booksOutput);
+                string customersOutput = File.ReadAllText(@"./Customer.xml");
+                XElement customersXElement = XElement.Parse(customersOutput);
 
                 Books = ( from item in booksXElement.Descendants("book")
                           select new Book() {
