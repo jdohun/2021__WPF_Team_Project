@@ -17,18 +17,33 @@ namespace WPF_팀프로젝트 {
     /// <summary>
     /// NewCustomer.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class NewCustomer : Page {
+    public partial class NewCustomerViewModel : Page {
         Customer customer = new Customer();
         Customer lastCustomer;
         string fmt = "00";
         string sLastNum;
         int iLastNum;
-        public NewCustomer() {
+
+        public NewCustomerViewModel() {
             InitializeComponent();
             nameBox.Focus();
         }
+
         private void Button_Click( object sender, RoutedEventArgs e ) { // 신규 등록
-            if(DataManager.Customers.Exists(x => (x.Name == nameBox.Text && x.Birth == birthBox.Text)) ) { // 이름, 생년월일이 같으면 
+            if(nameBox.Text == "" ) {
+                MessageBox.Show("이름을 입력해주세요.");
+                return;
+            }
+            else if(birthBox.Text == "" ) {
+                MessageBox.Show("생년월일을 입력해주세요.");
+                return;
+            }
+            else if(phoneBox.Text == "" ) {
+                MessageBox.Show("전화번호를 입력해주세요.");
+                return;
+            }
+
+            if (DataManager.Customers.Exists(x => (x.Name == nameBox.Text && x.Birth == birthBox.Text)) ) { // 이름, 생년월일이 같으면 
                 MessageBox.Show("이미 등록된 고객입니다.");
                 nameBox.Text = "";
                 birthBox.Text = "";
@@ -36,6 +51,7 @@ namespace WPF_팀프로젝트 {
                 nameBox.Focus();
                 return;
             }
+
             string today = DateTime.Now.ToString("yy-MM-dd"); // 일련번호 앞부분에 들어갈 오늘 날짜 추출
             today = today.Replace("-", "");
            
@@ -58,12 +74,9 @@ namespace WPF_팀프로젝트 {
             
             DataManager.Customers.Add(customer);
             DataManager.Save();
-            MessageBox.Show("등록이 완료되었습니다.");
-            
-            nameBox.Text = "";
-            birthBox.Text = "";
-            phoneBox.Text = "";
-            nameBox.Focus();
+            MessageBox.Show(customer.Name + " 님 등록이 완료되었습니다.");
+
+            NavigationService.Navigate(new Uri("Menu.xaml", UriKind.Relative));
         }
     }
 }

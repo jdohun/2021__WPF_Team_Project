@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_팀프로젝트 {
     class Naegwa {
-        public string[] Symptom = { "복통", "두통" };
+        static Naegwa() {}
+        public static string[] Symptom = { "복통", "두통" };
     }
 }

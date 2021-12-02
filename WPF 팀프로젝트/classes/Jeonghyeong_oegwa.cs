@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_팀프로젝트 {
     class Jeonghyeong_oegwa {
-        public string[] Symptom = { "삠(염좌)", "골절", "근육통", "관절통증" };
+        static Jeonghyeong_oegwa() { }
+        public static string[] Symptom = { "삠(염좌)", "골절", "근육통", "관절통증" };
     }
 }
