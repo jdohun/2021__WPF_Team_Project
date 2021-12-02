@@ -20,9 +20,10 @@ namespace WPF_팀프로젝트 {
     public partial class Acceptance : Page {
         public Acceptance() {
             InitializeComponent();
+            ComboBox();
         }
 
-        private void ComboBox_SelectionChanged( object sender, SelectionChangedEventArgs e ) {
+        void ComboBox() {
 
         }
     }

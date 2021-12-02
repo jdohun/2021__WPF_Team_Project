@@ -17,10 +17,10 @@
         <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="616,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="79,100,0,0" TextWrapping="Wrap" Text="증상" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="120,94,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="120,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.123,-0.125"/>
+        <ComboBox x:Name="SymptomBox" HorizontalAlignment="Left" Margin="120,94,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="120,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.123,-0.125"/>
         <TextBlock HorizontalAlignment="Left" Margin="409,100,0,0" TextWrapping="Wrap" Text="진료과" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="450,94,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="450,94,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="552,129,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>

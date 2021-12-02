@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="대학병원 접수관리 시스템" Height="450" Width="800">
     <Grid>
-        <Frame Source="Menu.xaml"/>
+        <!--<Frame Source="Menu.xaml"/>-->
+        <Frame Source="NewCustomer.xaml"/>
     </Grid>
 </Window>

@@ -5,68 +5,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using WPF_팀프로젝트.classes;
 
 namespace WPF_팀프로젝트 {
     class DataManager {
-        // xml로부터 받아올 Book List, User List
-        public static List<Customer> Customers = new List<Customer>();
-        public static List<Vaccine> Vaccines = new List<Vaccine>();
+        // xml로부터 받아올 Customer, Record, Vaccination, Accept List들
+        public static List<Customer> Customers = new List<Customer>();              // 고객
+        public static List<Record> Records = new List<Record>();                    // 진료 기록
+        public static List<Vaccination> Vaccinations = new List<Vaccination>();     // 백신 접종
+        public static List<Accept> Accepts = new List<Accept>();                    // 접수 현황
 
         /*private*/
         static DataManager() {  // 생성자
             Load();
         }
-
         public static void Load() {
             try {
-                //파일 경로 앞에 @를 넣음으로써 문자열 안에 백슬래시를 문자 그대로 인식하게 됨 그렇지 않으면 Escape문자로 인식하여 두번씩 연속으로 작성해야함 (테스트 결과 일반 슬래시는 상관 없음)
-                // ex) ".\\Books.xml
-                /* 책 목록 읽기 */
-                string customersOutput = File.ReadAllText(@"./Customer.xml");
+                // 고객 Customer
+                string customersOutput = File.ReadAllText(@"./Customers.xml");
                 XElement customersXElement = XElement.Parse(customersOutput);
 
-                Books = ( from item in booksXElement.Descendants("book")
-                          select new Book() {
-                              Isbn = item.Element("isbn").Value,
+                Customers = ( from item in customersXElement.Descendants("customer")
+                          select new Customer() {
+                              cID = item.Element("cID").Value,
                               Name = item.Element("name").Value,
-                              Publisher = item.Element("publisher").Value,
-                              Page = int.Parse(item.Element("page").Value),
-                              UserId = int.Parse(item.Element("userId").Value),
-                              UserName = item.Element("userName").Value,
-                              IsBorrowed = item.Element("isBorrowed").Value != "0" ? true : false,
-                              BorrowedAt = DateTime.Parse(item.Element("borrowedAt").Value),
-                              LessDays = item.Element("isBorrowed").Value == "1" ? ( DateTime.Parse(item.Element("borrowedAt").Value).AddDays(7) - DateTime.Now ).Days.ToString() : "."
-                          } ).ToList<Book>();
-
-                /* 사용자 목록 읽기 */
-                string usersOutput = File.ReadAllText(@"./Users.xml");
-                XElement usersXElement = XElement.Parse(usersOutput);
-
-                Users = ( from item in usersXElement.Descendants("user")
-                          select new User() {
-                              Id = int.Parse(item.Element("id").Value),
-                              Name = item.Element("name").Value,
-                              Pwd = item.Element("pwd").Value,
                               Birth = item.Element("birth").Value,
-                              PhoneNumber = item.Element("phoneNumber").Value,
-                              Email = item.Element("email").Value
-                          } ).ToList<User>();
+                              Phone = item.Element("phone").Value
+                          } ).ToList<Customer>();
 
-                /* 기록 목록 읽기 */
+                // 기록 Record
                 string recordsOutput = File.ReadAllText(@"./Records.xml");
                 XElement recordsXElement = XElement.Parse(recordsOutput);
-                Records = ( from item in recordsXElement.Descendants("record")
-                            select new Record() {
-                                Id = int.Parse(item.Element("id").Value),
-                                CountOfRec = int.Parse(item.Element("countOfRec").Value),
-                                Isbn = item.Element("isbn").Value,
-                                BookName = item.Element("bookName").Value,
-                                BookReturned = item.Element("bookReturned").Value.Equals("1") ? true : false,
-                                BorrowedAt = DateTime.Parse(item.Element("borrowedAt").Value),
-                                BorrowedDays = item.Element("bookReturned").Value.Equals("1") ? int.Parse(item.Element("borrowedDays").Value) : ( DateTime.Now - DateTime.Parse(item.Element("borrowedAt").Value) ).Days,
-                                OverdueDays = ( ( DateTime.Now - DateTime.Parse(item.Element("borrowedAt").Value).AddDays(7) ).Days > 0 ? ( DateTime.Now - DateTime.Parse(item.Element("borrowedAt").Value).AddDays(7) ).Days : 0 )
-                            } ).ToList<Record>();
 
+                Records = (from item in recordsXElement.Descendants("record")
+                           select new Record()
+                           {
+                               cID = item.Element("cID").Value,
+                               Department = item.Element("department").Value,
+                               Symptom = item.Element("symtom").Value,
+                               Date = DateTime.Parse(item.Element("date").Value)
+                           }).ToList<Record>();
+
+                // 백신 Vaccination
+                string vaccinationsOutput = File.ReadAllText(@"./Vaccinations.xml");
+                XElement vaccinationsXElement = XElement.Parse(vaccinationsOutput);
+
+                Vaccinations = ( from item in vaccinationsXElement.Descendants("vaccination")
+                          select new Vaccination() {
+                              Name = item.Element("name").Value,
+                              Count = int.Parse(item.Element("count").Value)
+                          } ).ToList<Vaccination>();
+
+               // 접수 현황 Accept
+                string acceptsOutput = File.ReadAllText(@"./Accepts.xml");
+                XElement acceptsXElement = XElement.Parse(acceptsOutput);
+
+                Accepts = (from item in acceptsXElement.Descendants("accept")
+                         select new Accept()
+                         {
+                             Department = item.Element("department").Value,
+                             Num = int.Parse(item.Element("num").Value),
+                             Name = item.Element("name").Value,
+                             Symptom = item.Element("symptom").Value
+                         }).ToList<Accept>();
+             
             }
             catch ( FileNotFoundException e ) {
                 Save();
@@ -74,66 +76,73 @@ namespace WPF_팀프로젝트 {
         }
 
         public static void Save() {
-            /* 책 목록 */
-            string booksOutput = "";
-            booksOutput += "<books>\n";
-            foreach ( var item in Books ) {
-                booksOutput += "<book>\n";
+            // 고객 목록
+            string customersOutput = "";
+            customersOutput += "<customers>\n";
+            foreach ( var item in Customers ) {
+               customersOutput += "<customer>\n";
 
-                booksOutput += "<isbn>" + item.Isbn + "</isbn>\n";
-                booksOutput += "<name>" + item.Name + "</name>\n";
-                booksOutput += "<publisher>" + item.Publisher + "</publisher>\n";
-                booksOutput += "<page>" + item.Page + "</page>\n";
-                booksOutput += "<userId>" + item.UserId + "</userId>\n";
-                booksOutput += "<userName>" + item.UserName + "</userName>\n";
-                booksOutput += "<isBorrowed>" + ( item.IsBorrowed ? 1 : 0 ) + "</isBorrowed>\n";
-                booksOutput += "<borrowedAt>" + item.BorrowedAt.ToLongDateString() + "</borrowedAt>\n";
-                booksOutput += "<lessDays>" + item.LessDays + "</lessDays>\n";
+                customersOutput += "<cID>" + item.cID + "</cID>\n";
+                customersOutput += "<name>" + item.Name + "</name>\n";
+                customersOutput += "<birth>" + item.Birth + "</birth>\n";
+                customersOutput += "<phone>" + item.Phone + "</phone>\n";
 
-                booksOutput += "</book>\n";
+                customersOutput += "</customer>\n";
             }
 
-            booksOutput += "</books>";
-
-            /* 사용자 목록 */
-            string usersOutput = "";
-            usersOutput += "<users>\n";
-            foreach ( var item in Users ) {
-                usersOutput += "<user>\n";
-
-                usersOutput += "<id>" + item.Id + "</id>\n";
-                usersOutput += "<name>" + item.Name + "</name>\n";
-                usersOutput += "<pwd>" + item.Pwd + "</pwd>\n";
-                usersOutput += "<birth>" + item.Birth + "</birth>\n";
-                usersOutput += "<phoneNumber>" + item.PhoneNumber + "</phoneNumber>\n";
-                usersOutput += "<email>" + item.Email + "</email>\n";
-
-                usersOutput += "</user>\n";
-            }
-            usersOutput += "</users>";
+            customersOutput += "</customers>";
 
             /* 기록 목록 */
-            string recordOutput = "";
-            recordOutput += "<records>\n";
+            string recordsOutput = "";
+            recordsOutput += "<records>\n";
             foreach ( var item in Records ) {
-                recordOutput += "<record>\n";
+                recordsOutput += "<record>\n";
 
-                recordOutput += "<id>" + item.Id + "</id>\n";
-                recordOutput += "<countOfRec>" + item.CountOfRec + "</countOfRec>\n";
-                recordOutput += "<isbn>" + item.Isbn + "</isbn>\n";
-                recordOutput += "<bookName>" + item.BookName + "</bookName>\n";
-                recordOutput += "<bookReturned>" + ( item.BookReturned ? 1 : 0 ) + "</bookReturned>\n";
-                recordOutput += "<borrowedAt>" + item.BorrowedAt + "</borrowedAt>\n";
-                recordOutput += "<borrowedDays>" + ( item.BookReturned ? item.BorrowedDays : ( DateTime.Now - item.BorrowedAt ).Days ) + "</borrowedDays>\n";
-                recordOutput += "<overdueDays>" + ( item.BorrowedDays - 7 > 0 ? item.BorrowedDays - 7 : 0 ) + "</overdueDays>\n";
+                recordsOutput += "<cID>" + item.cID + "</cID>\n";
+                recordsOutput += "<department>" + item.Department+ "</department>\n";
+                recordsOutput += "<symptom>" + item.Symptom + "</symptom>\n";
+                recordsOutput += "<date>" + item.Date.ToLongDateString() + "</date>\n";
 
-                recordOutput += "</record>\n";
+                recordsOutput += "</record>\n";
             }
-            recordOutput += "</records>";
+            recordsOutput += "</records>";
 
-            File.WriteAllText(@"./Books.xml", booksOutput);
-            File.WriteAllText(@"./Users.xml", usersOutput);
-            File.WriteAllText(@"./Records.xml", recordOutput);
+            // 백신 목록
+            string vaccinationsOutput = "";
+            vaccinationsOutput += "<vaccinations>\n";
+            foreach (var item in Vaccinations)
+            {
+                vaccinationsOutput += "<vaccination>\n";
+
+                vaccinationsOutput += "<name>" + item.Name + "</name>\n";
+                vaccinationsOutput += "<count>" + item.Count + "</count>\n";
+
+                vaccinationsOutput += "</vaccination>\n";
+            }
+            vaccinationsOutput += "</vaccinations>";
+
+
+            // 접수 목록
+            string acceptsOutput = "";
+            acceptsOutput += "<accepts>\n";
+            foreach (var item in Accepts)
+            {
+                acceptsOutput += "<accept>\n";
+
+                acceptsOutput += "<dapartment>" + item.Department + "</department>\n";
+                acceptsOutput += "<num>" + item.Num + "</num>\n";
+                acceptsOutput += "<name>" + item.Name + "</name>\n";
+                acceptsOutput += "<symptom>" + item.Symptom + "</symptom>\n";
+
+                acceptsOutput += "</accept>\n";
+            }
+
+            acceptsOutput += "</accepts>";
+
+            File.WriteAllText(@"./Customers.xml", customersOutput);
+            File.WriteAllText(@"./Records.xml", recordsOutput);
+            File.WriteAllText(@"./Vaccinations.xml", vaccinationsOutput);
+            File.WriteAllText(@"./Accepts.xml", acceptsOutput);
         }
     }
 }

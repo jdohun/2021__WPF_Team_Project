@@ -61,7 +61,7 @@
     <Compile Include="classes\Acceptance.cs" />
     <Compile Include="classes\Customer.cs" />
     <Compile Include="classes\Record.cs" />
-    <Compile Include="classes\Vaccine.cs" />
+    <Compile Include="classes\Vaccination.cs" />
     <Compile Include="CustomerRecord.xaml.cs">
       <DependentUpon>CustomerRecord.xaml</DependentUpon>
     </Compile>

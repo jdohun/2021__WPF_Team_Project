@@ -8,12 +8,16 @@
       Title="신규 : 고객등록" Height="199.853" Width="274.559">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="37,42,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="103,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="37,71,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="103,70,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="37,100,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="103,99,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <Button Content="등록" HorizontalAlignment="Left" Margin="181,139,0,0" VerticalAlignment="Top" Width="75" Height="36"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="275" >
+            <Grid Margin="0,0,-1,-22">
+                <TextBlock HorizontalAlignment="Left" Margin="37,42,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top"/>
+                <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="103,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" MaxLength="5"/>
+                <TextBlock HorizontalAlignment="Left" Margin="37,71,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top"/>
+                <TextBox x:Name="birthBox" HorizontalAlignment="Left" Height="23" Margin="103,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" MaxLength="6"/>
+                <TextBlock HorizontalAlignment="Left" Margin="37,100,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
+                <TextBox x:Name="phoneBox" HorizontalAlignment="Left" Height="23" Margin="103,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" MaxLength="11"/>
+                <Button Content="등록" HorizontalAlignment="Left" Margin="181,139,0,0" VerticalAlignment="Top" Width="75" Height="36" Click="Button_Click" Background="{x:Null}"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
