@@ -10,7 +10,7 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="textblock1" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="textblock1" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="{Binding XPath=@name}" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="textblock2" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top" FontSize="16"/>
