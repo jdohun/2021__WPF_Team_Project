@@ -1,0 +1,23 @@
+﻿<Page x:Class="WPF_팀프로젝트.NewCustomerViewModel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_팀프로젝트"
+      mc:Ignorable="d"
+      Title="신규 : 고객등록" Height="199.853" Width="274.559">
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="275" >
+            <Grid Margin="0,0,-1,-22">
+                <TextBlock HorizontalAlignment="Left" Margin="37,42,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top"/>
+                <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="103,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" MaxLength="5"/>
+                <TextBlock HorizontalAlignment="Left" Margin="37,71,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top"/>
+                <TextBox x:Name="birthBox" HorizontalAlignment="Left" Height="23" Margin="103,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" MaxLength="6"/>
+                <TextBlock HorizontalAlignment="Left" Margin="37,100,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
+                <TextBox x:Name="phoneBox" HorizontalAlignment="Left" Height="23" Margin="103,99,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" MaxLength="11"/>
+                <Button Content="등록" HorizontalAlignment="Left" Margin="181,139,0,0" VerticalAlignment="Top" Width="75" Height="36" Click="Button_Click" Background="{x:Null}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

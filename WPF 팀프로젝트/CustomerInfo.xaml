@@ -1,0 +1,47 @@
+﻿<Page x:Class="WPF_팀프로젝트.CustomerInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_팀프로젝트"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="고객정보">
+    <Page.Resources>
+        <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
+    </Page.Resources>
+    <Grid HorizontalAlignment="Left" Width="800" Height="450" VerticalAlignment="Bottom">
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="22" Margin="180,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" TextChanged="TextBox_TextChanged" />
+        <Button Name="btnSearch" Content="검색" HorizontalAlignment="Left" Margin="565,96,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+        <GroupBox Header="고객목록" HorizontalAlignment="Left" Height="293" Margin="29,133,0,0" VerticalAlignment="Top" Width="403">
+            <DataGrid AutoGenerateColumns="False" x:Name="customerList" HorizontalAlignment="Left"  Height="245" Margin="3,14,0,0" VerticalAlignment="Top" Width="382" DataContext="{StaticResource CustomerXml}" ItemsSource="{Binding XPath=/customers/customer}">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="cID" Width="95.5" Binding="{Binding XPath=cID }"/>
+                    <DataGridTextColumn Header="Name" Width="95.5" Binding="{Binding XPath=name }"/>
+                    <DataGridTextColumn Header="Birth" Width="95.5" Binding="{Binding XPath=birth}"/>
+                    <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding XPath=phone}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <Border DataContext="{Binding SelectedItem, ElementName=customerList}" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="464,161,0,0" VerticalAlignment="Top" Width="275">
+            <StackPanel Margin="10">
+                <TextBlock Text="cID"/>
+                <TextBox x:Name="txtcID" Text="{Binding XPath=cID, Mode=OneWay}"/>
+                <TextBlock Text="Name"/>
+                <TextBox x:Name="txtName" Text="{Binding XPath=name, Mode=TwoWay}"/>
+                <TextBlock Text="Birth"/>
+                <TextBox x:Name="txtBirth" Text="{Binding XPath=birth, Mode=TwoWay}"/>
+                <TextBlock Text="Phone Number"/>
+                <TextBox x:Name="txtPhone" Text="{Binding XPath=phone, Mode=TwoWay}"/>
+                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" Click="Button_Click_4"/>
+                <Button Content="삭제" HorizontalAlignment="Left" Height="28" Margin="90,-28,0,0" Width="76"/>
+                <Button Content="기록" HorizontalAlignment="Right" Height="28" Margin="92,-28,0,0" Width="76" Click="Button_Click_3"/>
+            </StackPanel>
+
+        </Border>
+        <Button Content="신 규" HorizontalAlignment="Left" Margin="464,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_1"/>
+        <Button Content="접 수" HorizontalAlignment="Left" Margin="565,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click"/>
+        <Button Content="백 신" HorizontalAlignment="Left" Margin="661,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_2"/>
+    </Grid>
+</Page>

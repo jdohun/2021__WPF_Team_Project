@@ -1,0 +1,20 @@
+﻿<Page x:Class="WPF_팀프로젝트.AcceptanceList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_팀프로젝트"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="접수현황" Height="439.411">
+
+    <Grid Margin="0,0,0,24">
+        <TextBlock HorizontalAlignment="Left" Margin="96,29,0,0" TextWrapping="Wrap" Text="진료과" VerticalAlignment="Top" Height="28" Width="48" FontSize="16"/>
+        <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="167,21,0,0" VerticalAlignment="Top" Width="148" Height="36" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem x:Name="Ibiinhugwa" Content="이비인후과" Selected="Ibiinhugwa_Selected"/>
+            <ComboBoxItem x:Name="Jeonghyeong_oegw" Content="정형외과"/>
+            <ComboBoxItem x:Name="Naegwa" Content="내과"/>
+        </ComboBox>
+        <Button Content="입장" HorizontalAlignment="Left" Margin="565,17,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.959,0.903" Height="40" Click="Button_Click"/>
+        <DataGrid x:Name="DataGridView" Margin="65,92,38,32" CurrentCellChanged="DataGridView_CurrentCellChanged"/>
+    </Grid>
+</Page>
