@@ -65,7 +65,7 @@ namespace WPF_팀프로젝트 {
                          {
                              Department = item.Element("department").Value,
                              Num = int.Parse(item.Element("num").Value),
-                             cID = item.Element("cId").Value,
+                             cID = item.Element("cID").Value,
                              Name = item.Element("name").Value,
                              Symptom = item.Element("symptom").Value
                          }).ToList<Accept>();
@@ -130,7 +130,7 @@ namespace WPF_팀프로젝트 {
             {
                 acceptsOutput += "<accept>\n";
 
-                acceptsOutput += "<dapartment>" + item.Department + "</department>\n";
+                acceptsOutput += "<department>" + item.Department + "</department>\n";
                 acceptsOutput += "<num>" + item.Num + "</num>\n";
                 acceptsOutput += "<cID>" + item.cID + "</cID>\n";
                 acceptsOutput += "<name>" + item.Name + "</name>\n";

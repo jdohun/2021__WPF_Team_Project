@@ -69,6 +69,7 @@
     <Compile Include="classes\Ibiinhugwa.cs" />
     <Compile Include="classes\Jeonghyeong_oegwa.cs" />
     <Compile Include="classes\Naegwa.cs" />
+    <Compile Include="Model\Symptom_Model.cs" />
     <Compile Include="NewCustomer.xaml.cs">
       <DependentUpon>NewCustomer.xaml</DependentUpon>
     </Compile>

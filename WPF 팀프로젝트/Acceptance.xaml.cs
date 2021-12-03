@@ -61,7 +61,13 @@ namespace WPF_팀프로젝트 {
                 return;
             }
 
-            int aCount = DataManager.Accepts.Where(x => x.Department == DepartmentBox.Text).Count() + 1;
+            int aCount = 0;
+
+            if ( DataManager.Accepts.Where(x => x.Department == DepartmentBox.Text).Count() == 0 ) {
+                aCount = 1;
+            }
+            else { aCount = DataManager.Accepts.Where(x => x.Department == DepartmentBox.Text).Count() + 1; }
+            
             Accept accept = new Accept();
             accept.cID = cIDBox.Text;
             accept.Name = nameBox.Text;
