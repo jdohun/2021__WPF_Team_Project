@@ -75,6 +75,9 @@
     <Compile Include="Vaccine.xaml.cs">
       <DependentUpon>Vaccine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AcceptanceViewModel.cs" />
+    <Compile Include="ViewModel\NewCustomerVIewModel.cs" />
+    <Compile Include="ViewModel\Notifier.cs" />
     <Page Include="Acceptance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
