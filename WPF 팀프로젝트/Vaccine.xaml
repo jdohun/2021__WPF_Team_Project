@@ -36,7 +36,7 @@
                 <TextBlock x:Name="textblock11" HorizontalAlignment="Left" Margin="116,182,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="button5" Content="예약하기" HorizontalAlignment="Left" Margin="358,360,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button5_Click"/>
-        <Button x:Name="button6" Content="취소하기" HorizontalAlignment="Left" Margin="511,360,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button6_Click"/>
+        <Button x:Name="button5" Content="예약하기" HorizontalAlignment="Left" Margin="358,360,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button5_Click" />
+        <Button x:Name="button6" Content="취소하기" HorizontalAlignment="Left" Margin="511,360,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button6_Click" />
     </Grid>
 </Page>
