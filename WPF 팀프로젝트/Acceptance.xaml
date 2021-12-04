@@ -9,10 +9,6 @@
     <Page.Resources>
         <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
     </Page.Resources>
-    <Page.DataContext>
-        <local:AcceptanceViewModel/>
-    </Page.DataContext>
-    
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="181" Margin="10,10,-12,0" VerticalAlignment="Top" Width="763" Grid.ColumnSpan="2">
             <Grid DataContext="{Binding customerList, ElementName=customer}" Margin="0,0,-1,-1">

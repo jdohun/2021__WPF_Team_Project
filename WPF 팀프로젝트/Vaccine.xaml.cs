@@ -35,10 +35,10 @@ namespace WPF_팀프로젝트 {
 
             customer = DataManager.Customers.Single(x => x.cID == cID);
 
-            cIDBox.Text = customer.cID;
-            nameBox.Text = customer.Name;
-            birthBox.Text = customer.Birth;
-            phoneBox.Text = customer.Phone;
+            cIDBlock.Text = customer.cID;
+            nameBlock.Text = customer.Name;
+            birthBlock.Text = customer.Birth;
+            phoneBlock.Text = customer.Phone;
           
         }
 
