@@ -42,7 +42,7 @@ namespace WPF_팀프로젝트 {
                            {
                                cID = item.Element("cID").Value,
                                Department = item.Element("department").Value,
-                               Symptom = item.Element("symtom").Value,
+                               Symptom = item.Element("symptom").Value,
                                Date = DateTime.Parse(item.Element("date").Value)
                            }).ToList<Record>();
 

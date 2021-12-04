@@ -11,31 +11,43 @@
         <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
     </Page.Resources>
     <Grid HorizontalAlignment="Left" Width="800" Height="450" VerticalAlignment="Bottom">
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="22" Margin="180,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" TextChanged="TextBox_TextChanged" />
-        <Button Name="btnSearch" Content="검색" HorizontalAlignment="Left" Margin="565,96,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="22" Margin="230,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" TextChanged="TextBox_TextChanged" />
         <GroupBox Header="고객목록" HorizontalAlignment="Left" Height="293" Margin="29,133,0,0" VerticalAlignment="Top" Width="403">
-            <DataGrid AutoGenerateColumns="False" x:Name="customerList" HorizontalAlignment="Left"  Height="245" Margin="3,14,0,0" VerticalAlignment="Top" Width="382" DataContext="{StaticResource CustomerXml}" ItemsSource="{Binding XPath=/customers/customer}">
+            <DataGrid x:Name="customerList" HorizontalAlignment="Left"  Height="245" Margin="3,14,0,0" VerticalAlignment="Top" Width="382">
 
+                <!--
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="cID" Width="95.5" Binding="{Binding XPath=cID }"/>
+                    <DataGridTextColumn Width="95.5" />
+                    <DataGridTextColumn Width="95.5" />
+                    <DataGridTextColumn Width="95.5" />
+                    <DataGridTextColumn Width="*" />
+                </DataGrid.Columns>
+            -->
+                <!--
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="cID" Width="95.5"  Binding="{Binding XPath=cID}"/>
                     <DataGridTextColumn Header="Name" Width="95.5" Binding="{Binding XPath=name }"/>
-                    <DataGridTextColumn Header="Birth" Width="95.5" Binding="{Binding XPath=birth}"/>
+                    <DataGridTextColumn Header="Birth" Width="95.5" Binding="{Binding XPath=birth}" />
                     <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding XPath=phone}" />
                 </DataGrid.Columns>
-            </DataGrid>
+-->
+           </DataGrid>
+            
+ 
+
         </GroupBox>
         <Border DataContext="{Binding SelectedItem, ElementName=customerList}" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="464,161,0,0" VerticalAlignment="Top" Width="275">
             <StackPanel Margin="10">
                 <TextBlock Text="cID"/>
-                <TextBox x:Name="txtcID" Text="{Binding XPath=cID, Mode=OneWay}"/>
+                <TextBox x:Name="txtcID" Text="{Binding cID}"/>
                 <TextBlock Text="Name"/>
-                <TextBox x:Name="txtName" Text="{Binding XPath=name, Mode=TwoWay}"/>
+                <TextBox x:Name="txtName" Text="{Binding Name}"/>
                 <TextBlock Text="Birth"/>
-                <TextBox x:Name="txtBirth" Text="{Binding XPath=birth, Mode=TwoWay}"/>
+                <TextBox x:Name="txtBirth" Text="{Binding Birth}"/>
                 <TextBlock Text="Phone Number"/>
-                <TextBox x:Name="txtPhone" Text="{Binding XPath=phone, Mode=TwoWay}"/>
-                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" Click="Button_Click_4"/>
-                <Button Content="삭제" HorizontalAlignment="Left" Height="28" Margin="90,-28,0,0" Width="76"/>
+                <TextBox x:Name="txtPhone" Text="{Binding Phone}"/>
+                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" />
+                <Button Content="삭제" HorizontalAlignment="Left" Height="28" Margin="90,-28,0,0" Width="76" Click="Button_Click_4"/>
                 <Button Content="기록" HorizontalAlignment="Right" Height="28" Margin="92,-28,0,0" Width="76" Click="Button_Click_3"/>
             </StackPanel>
 
@@ -43,5 +55,6 @@
         <Button Content="신 규" HorizontalAlignment="Left" Margin="464,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_1"/>
         <Button Content="접 수" HorizontalAlignment="Left" Margin="565,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click"/>
         <Button Content="백 신" HorizontalAlignment="Left" Margin="661,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_2"/>
+        <Label Content="검색" HorizontalAlignment="Left" Height="26" Margin="162,94,0,0" VerticalAlignment="Top" Width="45"/>
     </Grid>
 </Page>

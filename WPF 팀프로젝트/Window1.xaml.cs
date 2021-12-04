@@ -10,25 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF_팀프로젝트.classes;
 
 namespace WPF_팀프로젝트 {
     /// <summary>
-    /// CustomerRecord.xaml에 대한 상호 작용 논리
+    /// Window1.xaml에 대한 상호 작용 논리
     /// </summary>
-    
-    public partial class CustomerRecord : Page {
-        
-        public CustomerRecord() {
+    public partial class Window1 : Window {
+        public Window1() {
             InitializeComponent();
-            this.DataContext = new Customer();
-        }
-        public CustomerRecord(string cID)
-        {
-            InitializeComponent();
-            RecordView.ItemsSource = DataManager.Records.Where(x => x.cID == cID).ToList();
         }
     }
 }

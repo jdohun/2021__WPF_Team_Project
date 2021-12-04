@@ -19,6 +19,8 @@ namespace WPF_팀프로젝트 {
     /// Acceptance.xaml에 대한 상호 작용 논리
     /// </summary>
     public partial class Acceptance : Page {
+
+        AcceptsFactory factory = new AcceptsFactory();
         public Acceptance() {
             InitializeComponent();
             ComboBox();

@@ -6,16 +6,19 @@
       xmlns:local="clr-namespace:WPF_팀프로젝트"
       mc:Ignorable="d" d:DesignWidth="800"
       Title="진료 접수 기록" Height="431.471">
+    <Page.Resources>
+        <XmlDataProvider x:Key="RecordXml" Source="Records.xml"/>
+    </Page.Resources>
 
-    <Grid>
+    <Grid DataContext="{Binding customerList, ElementName=customer}">
         <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock Name="txtBcID" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="{Binding txtcID }" VerticalAlignment="Top" Width="85"/>
         <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock Name="txtBName" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="{Binding txtName}" VerticalAlignment="Top" Width="87"/>
         <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="450,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock Name="txtBBirth" HorizontalAlignment="Left" Margin="450,25,0,0" TextWrapping="Wrap" Text="{Binding txtBirth}" VerticalAlignment="Top" Width="83"/>
         <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="616,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <DataGrid HorizontalAlignment="Left" Height="332" Margin="10,72,0,0" VerticalAlignment="Top" Width="780"/>
+        <TextBlock Name="txtBPhone" HorizontalAlignment="Left" Margin="616,25,0,0" TextWrapping="Wrap" Text="{Binding txtPhone}" VerticalAlignment="Top" Width="101"/>
+        <DataGrid x:Name="RecordView" Margin="30,87,34,63.333"/>
     </Grid>
 </Page>

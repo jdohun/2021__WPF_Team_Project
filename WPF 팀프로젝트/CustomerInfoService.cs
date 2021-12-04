@@ -33,7 +33,7 @@ namespace WPF_팀프로젝트
        }*/
 
         //수정
-        public bool Update(Customer customerUpdate)
+        /*public bool Update(Customer customerUpdate)
         {
             bool IsUpdated = false;
             for (int index = 0; index < CustomersList.Count; index++)
@@ -65,8 +65,13 @@ namespace WPF_팀프로젝트
             return isDeleted;
         }
 
+        /*internal object Update(string cID)
+        {
+            throw new NotImplementedException();
+        }
+
         //검색
-       /*public Customer Search(string name)
+        public Customer Search(string name)
         {
             return CustomersList.FirstOrDefault(e => e.Name == name);
         }*/
