@@ -13,7 +13,8 @@
     <Grid HorizontalAlignment="Left" Width="800" Height="450" VerticalAlignment="Bottom">
         <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="22" Margin="230,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" TextChanged="TextBox_TextChanged" />
         <GroupBox Header="고객목록" HorizontalAlignment="Left" Height="293" Margin="29,133,0,0" VerticalAlignment="Top" Width="403">
-            <DataGrid x:Name="customerList" HorizontalAlignment="Left"  Height="245" Margin="3,14,0,0" VerticalAlignment="Top" Width="382">
+            <DataGrid x:Name="customerList" Margin="3,14,6,11">
+                
 
                 <!--
                 <DataGrid.Columns>
@@ -31,22 +32,22 @@
                     <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding XPath=phone}" />
                 </DataGrid.Columns>
 -->
-           </DataGrid>
-            
- 
+            </DataGrid>
+
+
 
         </GroupBox>
         <Border DataContext="{Binding SelectedItem, ElementName=customerList}" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="464,161,0,0" VerticalAlignment="Top" Width="275">
             <StackPanel Margin="10">
                 <TextBlock Text="cID"/>
                 <TextBox x:Name="txtcID" Text="{Binding cID}"/>
-                <TextBlock Text="Name"/>
+                <TextBlock Text="이름"/>
                 <TextBox x:Name="txtName" Text="{Binding Name}"/>
-                <TextBlock Text="Birth"/>
+                <TextBlock Text="생년월일"/>
                 <TextBox x:Name="txtBirth" Text="{Binding Birth}"/>
-                <TextBlock Text="Phone Number"/>
+                <TextBlock Text="전화번호"/>
                 <TextBox x:Name="txtPhone" Text="{Binding Phone}"/>
-                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" />
+                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" Click="Button_Click_5" />
                 <Button Content="삭제" HorizontalAlignment="Left" Height="28" Margin="90,-28,0,0" Width="76" Click="Button_Click_4"/>
                 <Button Content="기록" HorizontalAlignment="Right" Height="28" Margin="92,-28,0,0" Width="76" Click="Button_Click_3"/>
             </StackPanel>

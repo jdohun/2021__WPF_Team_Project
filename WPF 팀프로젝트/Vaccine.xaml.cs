@@ -23,7 +23,24 @@ namespace WPF_팀프로젝트 {
 
         public Vaccine() {
             InitializeComponent();
+            this.DataContext = new Customer();
             Load();
+        }
+
+        public Vaccine(string cID)
+        {
+            InitializeComponent();
+
+            //위에 정보 뜨기
+            Customer customer;
+
+            customer = DataManager.Customers.Single(x => x.cID == cID);
+
+            cIDBox.Text = customer.cID;
+            nameBox.Text = customer.Name;
+            birthBox.Text = customer.Birth;
+            phoneBox.Text = customer.Phone;
+          
         }
 
         public void Load()

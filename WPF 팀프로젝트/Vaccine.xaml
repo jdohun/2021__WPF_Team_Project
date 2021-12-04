@@ -10,17 +10,20 @@
     <!--<Page.Resources>
         <XmlDataProvider x:Key ="XmlData" Source="Vaccinations.xml"/>
     </Page.Resources>-->
-    <Grid>
+    <Page.Resources>
+        <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
+    </Page.Resources>
+    <Grid DataContext="{Binding customerList, ElementName=customer}">
         <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="textblock1" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text=""  VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="cIDBox" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="{Binding cID}"  VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="textblock2" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="nameBox" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="textblock3" HorizontalAlignment="Left" Margin="452,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="birthBox" HorizontalAlignment="Left" Margin="452,25,0,0" TextWrapping="Wrap" Text="{Binding Birth}" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="textblock4" HorizontalAlignment="Left" Margin="620,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="phoneBox" HorizontalAlignment="Left" Margin="620,25,0,0" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top" FontSize="16"/>
         <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="126,112,0,0" VerticalAlignment="Top" PreviewMouseUp="PreviewMouseUp"/>
-        <TextBlock x:Name="textblock5" HorizontalAlignment="Left" Margin="79,317,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock x:Name="textblock5" HorizontalAlignment="Left" Margin="79,317,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16" Width="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="162,317,0,0" TextWrapping="Wrap" Text="일" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="textblock6" HorizontalAlignment="Left" Margin="208,317,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="291,317,0,0" TextWrapping="Wrap" Text="백신" VerticalAlignment="Top" FontSize="16"/>

@@ -28,7 +28,22 @@ namespace WPF_팀프로젝트 {
         public CustomerRecord(string cID)
         {
             InitializeComponent();
-            RecordView.ItemsSource = DataManager.Records.Where(x => x.cID == cID).ToList();
+            //DataGrid
+            RecordView.ItemsSource = DataManager.Records.Where(x => x.cID == cID);//.ToList();
+
+            //위에 정보 뜨기
+            Customer customer;
+
+            customer = DataManager.Customers.Single(x => x.cID == cID);
+
+            txtBcID.Text = customer.cID;
+            txtBName.Text = customer.Name;
+            txtBBirth.Text = customer.Birth;
+            txtBPhone.Text = customer.Phone;
+
+            //MessageBox.Show(txtBcID.Text);*/
+
+
         }
     }
 }
