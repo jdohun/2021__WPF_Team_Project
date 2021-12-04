@@ -22,14 +22,13 @@ namespace WPF_팀프로젝트 {
         public int pfizerC, ModernaC, AZC, JanssenC;
         public Vaccine() {
             InitializeComponent();
-            this.DataContext = new Customer();
-            Load();
+            //this.DataContext = new Customer();
         }
 
         public Vaccine(string cID)
         {
             InitializeComponent();
-
+            
             //위에 정보 뜨기
             Customer customer;
 
@@ -39,7 +38,8 @@ namespace WPF_팀프로젝트 {
             nameBlock.Text = customer.Name;
             birthBlock.Text = customer.Birth;
             phoneBlock.Text = customer.Phone;
-          
+            
+            Load();
         }
 
         public void Load()
@@ -70,6 +70,7 @@ namespace WPF_팀프로젝트 {
         private void button1_Click( object sender, RoutedEventArgs e ) {
             if ( button1_clicked == false ) {
                 fixedVaccine.Text = "화이자";
+                MessageBox.Show(pfizer.Text);
                 int count = Convert.ToInt32(pfizer.Text) - 1;
                 pfizer.Text = count.ToString();
                 pfizer.Foreground = Brushes.Red;
