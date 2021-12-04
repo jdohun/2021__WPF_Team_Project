@@ -70,7 +70,6 @@ namespace WPF_팀프로젝트 {
         private void button1_Click( object sender, RoutedEventArgs e ) {
             if ( button1_clicked == false ) {
                 fixedVaccine.Text = "화이자";
-                MessageBox.Show(pfizer.Text);
                 int count = Convert.ToInt32(pfizer.Text) - 1;
                 pfizer.Text = count.ToString();
                 pfizer.Foreground = Brushes.Red;
@@ -174,6 +173,12 @@ namespace WPF_팀프로젝트 {
                 return;
             }
             else {
+                Customer customer = DataManager.Customers.Single(x => x.cID == cIDBlock.Text);
+                if(customer.VaccineReserv == "2차" ) {
+                    MessageBox.Show("이미 접종이 완료된 고객입니다.");
+                    return;
+                }
+
                 int aCount = 0;
                 if ( DataManager.Accepts.Where(x => x.Department == "백신").Count() == 0 ) { aCount = 1; }
                 else { aCount = DataManager.Accepts.Where(x => x.Department == "백신").Count() + 1; }

@@ -30,6 +30,7 @@ namespace WPF_팀프로젝트 {
         private void Button_Click_1( object sender, RoutedEventArgs e ) {
             NavigationService.Navigate(new Uri("/NewCustomer.xaml", UriKind.Relative));
         }
+
         //접수
         private void Button_Click( object sender, RoutedEventArgs e ) {
             string cID = txtcID.Text;
@@ -70,11 +71,8 @@ namespace WPF_팀프로젝트 {
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                
             }
-            
         }
-        //
 
         //삭제 버튼
         private void Button_Click_4(object sender, RoutedEventArgs e)
@@ -93,6 +91,7 @@ namespace WPF_팀프로젝트 {
                 customerList.ItemsSource = DataManager.Customers;
             }
         }
+
         //수정 버튼
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
@@ -114,9 +113,8 @@ namespace WPF_팀프로젝트 {
             }
         }
 
-        
-
-
-
+        private void Button_Click_6( object sender, RoutedEventArgs e ) {
+            NavigationService.Navigate(new Uri("/AcceptanceList.xaml", UriKind.Relative));
+        }
     }
 }
