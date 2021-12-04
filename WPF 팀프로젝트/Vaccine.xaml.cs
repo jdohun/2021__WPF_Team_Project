@@ -22,10 +22,28 @@ namespace WPF_팀프로젝트 {
         public int pfizerC, ModernaC, AZC, JanssenC;
         public Vaccine() {
             InitializeComponent();
+            this.DataContext = new Customer();
             Load();
         }
 
-        public void Load() {
+        public Vaccine(string cID)
+        {
+            InitializeComponent();
+
+            //위에 정보 뜨기
+            Customer customer;
+
+            customer = DataManager.Customers.Single(x => x.cID == cID);
+
+            cIDBox.Text = customer.cID;
+            nameBox.Text = customer.Name;
+            birthBox.Text = customer.Birth;
+            phoneBox.Text = customer.Phone;
+          
+        }
+
+        public void Load()
+        {
             List<Vaccination> vaccinations = DataManager.Vaccinations;
             pfizerC = vaccinations.Single(x => x.Name == "화이자").Count;
             ModernaC = vaccinations.Single(x => x.Name == "모더나").Count;

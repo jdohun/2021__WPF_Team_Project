@@ -10,7 +10,10 @@
     <!--<Page.Resources>
         <XmlDataProvider x:Key ="XmlData" Source="Vaccinations.xml"/>
     </Page.Resources>-->
-    <Grid>
+    <Page.Resources>
+        <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
+    </Page.Resources>
+    <Grid DataContext="{Binding customerList, ElementName=customer}">
         <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontSize="16"/>
         <TextBlock x:Name="cIDBlock" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="text"  VerticalAlignment="Top" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" FontSize="16"/>
