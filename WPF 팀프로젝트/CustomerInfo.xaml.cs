@@ -74,12 +74,34 @@ namespace WPF_팀프로젝트 {
             {
                 customer = DataManager.Customers.Single(x => x.cID == txtcID.Text);
                 DataManager.Customers.Remove(customer);
-                MessageBox.Show(customer.Name + " \"님\"의 정보가 삭제되었습니다.");
+                MessageBox.Show(customer.Name + " 님의 정보가 삭제되었습니다.");
                 DataManager.Save();
                 customerList.ItemsSource = null;
                 customerList.ItemsSource = DataManager.Customers;
             }
         }
+        //수정 버튼
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Customer customer;
+            if (!DataManager.Customers.Exists(x => x.cID == txtcID.Text)) { MessageBox.Show("존재하지 않는 고객입니다."); }
+            else
+            {
+                customer = DataManager.Customers.Single(x => x.cID == txtcID.Text);
+                customer.Name = txtName.Text;
+                customer.Birth = txtBirth.Text;
+                customer.Phone = txtPhone.Text;
+
+                MessageBox.Show(customer.Name + " 님의 정보가 수정되었습니다.");
+
+                DataManager.Save();
+                customerList.ItemsSource = null;
+                customerList.ItemsSource = DataManager.Customers;
+                
+            }
+        }
+
+        
 
 
 

@@ -23,8 +23,7 @@ namespace WPF_팀프로젝트
 
        static CustomersFactory()   // 생성자에서 고객 목록 가져옴
         {
-            customers = DataManager.Customers;//.ToList<Customer>();
-            //customers = DataManager.Customers.ToList<Customer>();
+            customers = DataManager.Customers;
         }
     }
     public class Customer : Notifier
@@ -69,6 +68,14 @@ namespace WPF_팀프로젝트
                 phone = value;
                 OnPropertyChanged("Phone");
             }
+        }
+
+        // 백신 예약
+        private string vaccineReserv;
+
+        public string VaccineReserv {
+            get { return vaccineReserv; }
+            set { vaccineReserv = value; }
         }
     }
 }

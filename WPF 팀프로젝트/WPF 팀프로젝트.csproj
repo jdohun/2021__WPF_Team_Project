@@ -59,6 +59,7 @@
       <DependentUpon>Acceptance.xaml</DependentUpon>
     </Compile>
     <Compile Include="classes\AcceptsFactory.cs" />
+    <Compile Include="classes\Notifier.cs" />
     <Compile Include="classes\Record.cs" />
     <Compile Include="classes\Vaccination.cs" />
     <Compile Include="CustomerRecord.xaml.cs">
@@ -69,16 +70,12 @@
     <Compile Include="classes\Jeonghyeong_oegwa.cs" />
     <Compile Include="classes\Naegwa.cs" />
     <Compile Include="classes\CustomersFactory.cs" />
-    <Compile Include="Model\Symptom_Model.cs" />
     <Compile Include="NewCustomer.xaml.cs">
       <DependentUpon>NewCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vaccine.xaml.cs">
       <DependentUpon>Vaccine.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AcceptanceViewModel.cs" />
-    <Compile Include="ViewModel\NewCustomerVIewModel.cs" />
-    <Compile Include="ViewModel\Notifier.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>

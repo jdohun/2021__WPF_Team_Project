@@ -30,7 +30,8 @@ namespace WPF_팀프로젝트 {
                               cID = item.Element("cID").Value,
                               Name = item.Element("name").Value,
                               Birth = item.Element("birth").Value,
-                              Phone = item.Element("phone").Value
+                              Phone = item.Element("phone").Value,
+                              VaccineReserv = item.Element("vaccineReserv").Value
                           } ).ToList<Customer>();
 
                 // 기록 Record
@@ -87,6 +88,7 @@ namespace WPF_팀프로젝트 {
                 customersOutput += "<name>" + item.Name + "</name>\n";
                 customersOutput += "<birth>" + item.Birth + "</birth>\n";
                 customersOutput += "<phone>" + item.Phone + "</phone>\n";
+                customersOutput += "<vaccineReserv>" + item.VaccineReserv + "</vaccineReserv>\n";
 
                 customersOutput += "</customer>\n";
             }

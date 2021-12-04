@@ -15,13 +15,7 @@
         <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="167,21,0,0" VerticalAlignment="Top" Width="148" Height="36" SelectionChanged="ComboBox_SelectionChanged"/>
 
         <Button Content="입장" HorizontalAlignment="Left" Margin="565,17,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.959,0.903" Height="40" Click="Button_Click"/>
-        <DataGrid x:Name="DataGridView" Margin="65,92,38,32">
-            <!--<DataGrid.Columns>
-                <DataGridTextColumn Header="접수번호"/>
-                <DataGridTextColumn Header="이름"/>
-                <DataGridTextColumn Header="증상"/>
-            </DataGrid.Columns>-->
-        </DataGrid>
+        <DataGrid x:Name="DataGridView" Margin="65,92,38,32"/>
     </Grid>
 
 </Page>
