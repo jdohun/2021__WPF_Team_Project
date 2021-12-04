@@ -63,8 +63,10 @@ namespace WPF_팀프로젝트 {
 
             Customer customer = DataManager.Customers.Single(x => x.cID == accept.cID);
             DataManager.Customers.Remove(customer);
-            if ( customer.VaccineReserv == "" ) { customer.VaccineReserv = "1차"; }
-            else if ( customer.VaccineReserv == "1차" ) { customer.VaccineReserv = "2차"; }
+            if( accept.Department == "백신" ) {
+                if ( customer.VaccineReserv == "" ) { customer.VaccineReserv = "1차"; }
+                else if ( customer.VaccineReserv == "1차" ) { customer.VaccineReserv = "2차"; }
+            }
             DataManager.Customers.Add(customer);
 
             DataManager.Save();
