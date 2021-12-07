@@ -18,15 +18,14 @@ namespace WPF_팀프로젝트 {
     /// <summary>
     /// CustomerRecord.xaml에 대한 상호 작용 논리
     /// </summary>
-    
+
     public partial class CustomerRecord : Page {
-        
+
         public CustomerRecord() {
             InitializeComponent();
             this.DataContext = new Customer();
         }
-        public CustomerRecord(string cID)
-        {
+        public CustomerRecord( string cID ) {
             InitializeComponent();
             //DataGrid
             RecordView.ItemsSource = DataManager.Records.Where(x => x.cID == cID);//.ToList();
@@ -40,10 +39,10 @@ namespace WPF_팀프로젝트 {
             txtBName.Text = customer.Name;
             txtBBirth.Text = customer.Birth;
             txtBPhone.Text = customer.Phone;
+        }
 
-            //MessageBox.Show(txtBcID.Text);*/
-
-
+        private void Button_Click( object sender, RoutedEventArgs e ) {
+            NavigationService.Navigate(new Uri("/Menu.xaml", UriKind.Relative));
         }
     }
 }

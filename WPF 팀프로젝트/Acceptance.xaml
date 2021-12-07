@@ -10,22 +10,22 @@
         <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
     </Page.Resources>
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="181" Margin="10,10,-12,0" VerticalAlignment="Top" Width="763" Grid.ColumnSpan="2">
+        <Border BorderBrush="#FF48A7C6" BorderThickness="1" HorizontalAlignment="Left" Height="181" Margin="10,10,-12,0" VerticalAlignment="Top" Width="763" Grid.ColumnSpan="2">
             <Grid DataContext="{Binding customerList, ElementName=customer}" Margin="0,0,-1,-1">
-                <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top"/>
-                <TextBlock Name="cIDBox" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="{Binding cID}" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top"/>
-                <TextBlock x:Name="nameBox" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top"/>
-                <TextBlock x:Name="birthBox" HorizontalAlignment="Left" Margin="450,25,0,0" TextWrapping="Wrap" Text="{Binding Birth}" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
-                <TextBlock x:Name="phoneBox" HorizontalAlignment="Left" Margin="616,25,0,0" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="79,100,0,0" TextWrapping="Wrap" Text="증상" VerticalAlignment="Top"/>
-                <ComboBox x:Name="cSymptomBox" HorizontalAlignment="Left" Margin="120,94,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SymptomBox_SelectionChanged"/>
-                <TextBox x:Name="tSymptomBox" HorizontalAlignment="Left" Height="24" Margin="120,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.123,-0.125"/>
-                <TextBlock HorizontalAlignment="Left" Margin="409,100,0,0" TextWrapping="Wrap" Text="진료과" VerticalAlignment="Top"/>
-                <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="450,94,0,0" VerticalAlignment="Top" Width="120"/>
-                <Button Content="접수" HorizontalAlignment="Left" Margin="552,129,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF48A7C6"/>
+                <TextBlock Name="cIDBox" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="{Binding cID}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF48A7C6"/>
+                <TextBlock x:Name="nameBox" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF48A7C6"/>
+                <TextBlock x:Name="birthBox" HorizontalAlignment="Left" Margin="450,25,0,0" TextWrapping="Wrap" Text="{Binding Birth}" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top" Foreground="#FF48A7C6" FontWeight="Bold"/>
+                <TextBlock x:Name="phoneBox" HorizontalAlignment="Left" Margin="616,25,0,0" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="79,100,0,0" TextWrapping="Wrap" Text="증상" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF48A7C6"/>
+                <ComboBox x:Name="cSymptomBox" HorizontalAlignment="Left" Margin="120,94,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SymptomBox_SelectionChanged" FontSize="14" FontWeight="Medium" BorderBrush="#FF1F1C1C" Foreground="#FF2F2C2C"/>
+                <TextBox x:Name="tSymptomBox" HorizontalAlignment="Left" Height="24" Margin="120,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.123,-0.125" FontSize="14" FontWeight="Medium" MinWidth="10" VerticalContentAlignment="Center" BorderBrush="#FF48A7C6"/>
+                <TextBlock HorizontalAlignment="Left" Margin="409,100,0,0" TextWrapping="Wrap" Text="진료과" VerticalAlignment="Top" Foreground="#FF48A7C6" FontWeight="Bold"/>
+                <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="450,94,0,0" VerticalAlignment="Top" Width="120" FontSize="14" FontWeight="Medium"/>
+                <Button Content="접수" HorizontalAlignment="Left" Margin="601,135,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click" Background="#FF48A7C6" BorderBrush="White" Foreground="White"/>
             </Grid>
         </Border>
     </Grid>

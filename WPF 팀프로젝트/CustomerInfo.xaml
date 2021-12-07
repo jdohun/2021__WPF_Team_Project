@@ -10,53 +10,43 @@
     <Page.Resources>
         <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
     </Page.Resources>
-    <Grid HorizontalAlignment="Left" Width="800" Height="450" VerticalAlignment="Bottom">
-        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="22" Margin="230,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" TextChanged="TextBox_TextChanged" />
-        <GroupBox Header="고객목록" HorizontalAlignment="Left" Height="293" Margin="29,133,0,0" VerticalAlignment="Top" Width="403">
-            <DataGrid x:Name="customerList" Margin="3,14,6,11">
-                
-
-                <!--
-                <DataGrid.Columns>
-                    <DataGridTextColumn Width="95.5" />
-                    <DataGridTextColumn Width="95.5" />
-                    <DataGridTextColumn Width="95.5" />
-                    <DataGridTextColumn Width="*" />
-                </DataGrid.Columns>
-            -->
-                <!--
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="cID" Width="95.5"  Binding="{Binding XPath=cID}"/>
-                    <DataGridTextColumn Header="Name" Width="95.5" Binding="{Binding XPath=name }"/>
-                    <DataGridTextColumn Header="Birth" Width="95.5" Binding="{Binding XPath=birth}" />
-                    <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding XPath=phone}" />
-                </DataGrid.Columns>
--->
-            </DataGrid>
-
-
-
+    <Grid HorizontalAlignment="Left" Width="800" Height="450" VerticalAlignment="Bottom" Background="White" Margin="0,-2,0,2">
+        <TextBox x:Name="searchBox" HorizontalAlignment="Left" Height="22" Margin="230,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="365" TextChanged="TextBox_TextChanged" BorderBrush="#FF48A7C6" />
+        <GroupBox Header="고객목록" HorizontalAlignment="Left" Height="293" Margin="29,133,0,0" VerticalAlignment="Top" Width="403" Foreground="#FF48A7C6" FontWeight="Bold">
+            <DataGrid x:Name="customerList" Margin="3,14,6,11" FontSize="14" BorderBrush="#FF48A7C6" IsSynchronizedWithCurrentItem="True" HorizontalGridLinesBrush="#FF48A7C6" VerticalGridLinesBrush="#FF48A7C6" FontFamily="Malgun Gothic" FontWeight="Normal"/>
         </GroupBox>
-        <Border DataContext="{Binding SelectedItem, ElementName=customerList}" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="212" Margin="464,161,0,0" VerticalAlignment="Top" Width="275">
+        <Border DataContext="{Binding SelectedItem, ElementName=customerList}" BorderBrush="#FF48A7C6" BorderThickness="1" HorizontalAlignment="Left" Height="227" Margin="464,146,0,0" VerticalAlignment="Top" Width="275">
             <StackPanel Margin="10">
-                <TextBlock Text="cID"/>
-                <TextBox x:Name="txtcID" Text="{Binding cID}"/>
-                <TextBlock Text="이름"/>
-                <TextBox x:Name="txtName" Text="{Binding Name}"/>
-                <TextBlock Text="생년월일"/>
-                <TextBox x:Name="txtBirth" Text="{Binding Birth}"/>
-                <TextBlock Text="전화번호"/>
-                <TextBox x:Name="txtPhone" Text="{Binding Phone}"/>
-                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" Click="Button_Click_5" />
-                <Button Content="삭제" HorizontalAlignment="Left" Height="28" Margin="90,-28,0,0" Width="76" Click="Button_Click_4"/>
-                <Button Content="기록" HorizontalAlignment="Right" Height="28" Margin="92,-28,0,0" Width="76" Click="Button_Click_3"/>
+                <TextBlock Text="cID" FontWeight="Bold" Foreground="#FF48A7C6"/>
+                <TextBox x:Name="txtcID" Text="{Binding cID}" BorderBrush="#FF48A7C6"/>
+                <TextBlock Text="이름" Foreground="#FF48A7C6" FontWeight="Bold"/>
+                <TextBox x:Name="txtName" Text="{Binding Name}" BorderBrush="#FF48A7C6"/>
+                <TextBlock Text="생년월일" FontWeight="Bold" Foreground="#FF48A7C6"/>
+                <TextBox x:Name="txtBirth" Text="{Binding Birth}" BorderBrush="#FF48A7C6"/>
+                <TextBlock Text="전화번호" Foreground="#FF48A7C6" FontWeight="Bold"/>
+                <TextBox x:Name="txtPhone" Text="{Binding Phone}" BorderBrush="#FF48A7C6"/>
+                <Button Content="수정" HorizontalAlignment="Left" Height="28" Margin="1,20,0,0" Width="76" Click="Button_Click_5" FontWeight="Medium" BorderBrush="#FF48A7C6" Background="{x:Null}" Foreground="#FF48A7C6" />
+                <Button Content="삭제" Height="28" Margin="90,-28,86,0" Click="Button_Click_4" FontWeight="Medium" Foreground="#FF48A7C6" BorderBrush="#FF48A7C6">
+                    <Button.Background>
+                        <SolidColorBrush Color="White"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="기록" HorizontalAlignment="Right" Height="28" Margin="92,-28,0,0" Width="76" Click="Button_Click_3" Background="White" BorderBrush="#FF48A7C6" Foreground="#FF48A7C6"/>
             </StackPanel>
 
         </Border>
-        <Button Content="신 규" HorizontalAlignment="Left" Margin="464,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_1"/>
-        <Button Content="접 수" HorizontalAlignment="Left" Margin="565,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click"/>
-        <Button Content="백 신" HorizontalAlignment="Left" Margin="661,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_2"/>
-        <Label Content="검색" HorizontalAlignment="Left" Height="26" Margin="162,94,0,0" VerticalAlignment="Top" Width="45"/>
-        <Button Content="접수 현황" HorizontalAlignment="Left" Margin="29,21,0,0" VerticalAlignment="Top" Width="115" Height="32" Click="Button_Click_6"/>
+        <Button Content="신 규" HorizontalAlignment="Left" Margin="464,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_1" Background="#FF48A7C6" BorderBrush="#FFFFFEFE" Foreground="#FFFBFBFB"/>
+        <Button Content="접 수" HorizontalAlignment="Left" Margin="565,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click" Background="#FF48A7C6" BorderBrush="#FFFEFDFD" Foreground="#FFFEFAFA"/>
+        <Button Content="백 신" HorizontalAlignment="Left" Margin="661,391,0,0" VerticalAlignment="Top" Width="81" Height="35" Click="Button_Click_2" Background="#FF48A7C6" BorderBrush="White" Foreground="White"/>
+        <Label Content="" HorizontalAlignment="Left" Height="31" Margin="606,91,0,0" VerticalAlignment="Top" Width="31" FontSize="14" FontWeight="Bold">
+            <Label.Background>
+                <ImageBrush ImageSource="돋보기.jpg"/>
+            </Label.Background>
+        </Label>
+        <Button Content="" HorizontalAlignment="Left" Margin="44,77,0,0" VerticalAlignment="Top" Width="39" Height="36" Click="Button_Click_6" RenderTransformOrigin="-0.667,-0.103" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="MicrosoftTeams-image (8).png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

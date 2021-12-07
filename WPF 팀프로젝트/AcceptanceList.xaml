@@ -11,11 +11,11 @@
     </Page.Resources>
 
     <Grid Margin="0,0,0,24">
-        <TextBlock HorizontalAlignment="Left" Margin="96,29,0,0" TextWrapping="Wrap" Text="진료과" VerticalAlignment="Top" Height="28" Width="48" FontSize="16"/>
-        <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="167,21,0,0" VerticalAlignment="Top" Width="148" Height="36" SelectionChanged="ComboBox_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="96,29,0,0" TextWrapping="Wrap" Text="진료과" VerticalAlignment="Top" Height="28" Width="48" FontSize="16" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <ComboBox x:Name="DepartmentBox" HorizontalAlignment="Left" Margin="167,25,0,0" VerticalAlignment="Top" Width="148" SelectionChanged="ComboBox_SelectionChanged" FontSize="18"/>
 
-        <Button Content="입장" HorizontalAlignment="Left" Margin="565,17,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.959,0.903" Height="40" Click="Button_Click"/>
-        <DataGrid x:Name="DataGridView" Margin="65,92,38,32"/>
+        <Button Content="입장" HorizontalAlignment="Left" Margin="565,21,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="1.959,0.903" Height="40" Click="Button_Click" Background="#FF48A7C6" BorderBrush="#FFFEFEFE" Foreground="#FFF8F8F8"/>
+        <DataGrid x:Name="DataGridView" Margin="59,78,44,46.333" FontSize="14" BorderBrush="#FF48A7C6"/>
     </Grid>
 
 </Page>

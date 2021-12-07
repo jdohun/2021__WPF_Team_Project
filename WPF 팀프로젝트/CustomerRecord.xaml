@@ -12,14 +12,19 @@
     </Page.Resources>
 
     <Grid DataContext="{Binding customerList, ElementName=customer}">
-        <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top"/>
-        <TextBlock Name="txtBcID" HorizontalAlignment="Left" Margin="115,25,0,0" TextWrapping="Wrap" Text="{Binding cID }" VerticalAlignment="Top" />
-        <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top"/>
-        <TextBlock Name="txtBName" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" />
-        <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top"/>
-        <TextBlock Name="txtBBirth" HorizontalAlignment="Left" Margin="450,25,0,0" TextWrapping="Wrap" Text="{Binding Birth}" VerticalAlignment="Top" />
-        <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top"/>
-        <TextBlock Name="txtBPhone" HorizontalAlignment="Left" Margin="616,25,0,0" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top" />
-        <DataGrid x:Name="RecordView" Margin="30,87,34,63.333"/>
+        <TextBlock HorizontalAlignment="Left" Margin="127,39,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF48A7C6"/>
+        <TextBlock Name="txtBcID" HorizontalAlignment="Left" Margin="163,39,0,0" TextWrapping="Wrap" Text="{Binding cID }" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" />
+        <TextBlock HorizontalAlignment="Left" Margin="282,39,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <TextBlock Name="txtBName" HorizontalAlignment="Left" Margin="323,39,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" />
+        <TextBlock HorizontalAlignment="Left" Margin="433,39,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top" FontWeight="SemiBold" Foreground="#FF48A7C6"/>
+        <TextBlock Name="txtBBirth" HorizontalAlignment="Left" Margin="498,39,0,0" TextWrapping="Wrap" Text="{Binding Birth}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" />
+        <TextBlock HorizontalAlignment="Left" Margin="600,39,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <TextBlock Name="txtBPhone" HorizontalAlignment="Left" Margin="664,39,0,0" TextWrapping="Wrap" Text="{Binding Phone}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" />
+        <DataGrid x:Name="RecordView" Margin="30,87,34,63.333" FontSize="14" BorderBrush="#FF48A7C6" HorizontalGridLinesBrush="#FF48A7C6" VerticalGridLinesBrush="#FF48A7C6"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="30,29,0,0" VerticalAlignment="Top" Width="39" Height="36" RenderTransformOrigin="-0.667,-0.103" BorderBrush="{x:Null}" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="MicrosoftTeams-image (8).png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

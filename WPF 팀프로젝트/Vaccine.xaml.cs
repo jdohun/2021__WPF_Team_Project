@@ -22,13 +22,11 @@ namespace WPF_팀프로젝트 {
         public int pfizerC, ModernaC, AZC, JanssenC;
         public Vaccine() {
             InitializeComponent();
-            //this.DataContext = new Customer();
         }
 
-        public Vaccine(string cID)
-        {
+        public Vaccine( string cID ) {
             InitializeComponent();
-            
+
             //위에 정보 뜨기
             Customer customer;
 
@@ -38,12 +36,11 @@ namespace WPF_팀프로젝트 {
             nameBlock.Text = customer.Name;
             birthBlock.Text = customer.Birth;
             phoneBlock.Text = customer.Phone;
-            
+
             Load();
         }
 
-        public void Load()
-        {
+        public void Load() {
             List<Vaccination> vaccinations = DataManager.Vaccinations;
             pfizerC = vaccinations.Single(x => x.Name == "화이자").Count;
             ModernaC = vaccinations.Single(x => x.Name == "모더나").Count;
@@ -63,7 +60,6 @@ namespace WPF_팀프로젝트 {
 
         private void PreviewMouseUp( object sender, MouseButtonEventArgs e ) {
             DateTime dt = (DateTime)calendar.SelectedDate;
-            reservDay.Text = dt.ToString("dd");
             fixedDay.Text = dt.ToString("dd");
         }
 
@@ -139,6 +135,10 @@ namespace WPF_팀프로젝트 {
             }
         }
 
+        private void Button_Click( object sender, RoutedEventArgs e ) { // 접수현황
+            NavigationService.Navigate(new Uri("/AcceptanceList.xaml", UriKind.Relative));
+        }
+
         private void button4_Click( object sender, RoutedEventArgs e ) {
             if ( button4_clicked == false ) {
                 fixedVaccine.Text = "얀센";
@@ -164,7 +164,7 @@ namespace WPF_팀프로젝트 {
         }
 
         private void button5_Click( object sender, RoutedEventArgs e ) { // 예약하기
-            if ( reservDay.Text.Trim() == "text" ) {
+            if ( fixedDay.Text.Trim() == "text" ) {
                 MessageBox.Show("날짜를 선택하세요.");
                 return;
             }
@@ -174,7 +174,7 @@ namespace WPF_팀프로젝트 {
             }
             else {
                 Customer customer = DataManager.Customers.Single(x => x.cID == cIDBlock.Text);
-                if(customer.VaccineReserv == "2차" ) {
+                if ( customer.VaccineReserv == "2차" ) {
                     MessageBox.Show("이미 접종이 완료된 고객입니다.");
                     return;
                 }
@@ -197,22 +197,29 @@ namespace WPF_팀프로젝트 {
                     Num = aCount,
                     Symptom = reservDay + fixedVaccine.Text
                 };
-                
+
                 DataManager.Accepts.Add(accept);
                 DataManager.Vaccinations.Add(vaccination);
                 DataManager.Save();
-                MessageBox.Show("\"" + nameBlock.Text + "\"" + "님의 " + vaccination.Name + " 예약이 완료되었습니다.");
-                //NavigationService.Navigate();
+                MessageBox.Show(nameBlock.Text + "님의 " + vaccination.Name + " 예약이 완료되었습니다.");
+                NavigationService.Navigate(new Uri("Menu.xaml", UriKind.Relative));
             }
         }
 
         private void button6_Click( object sender, RoutedEventArgs e ) { // 취소하기
             List<Accept> accepts = DataManager.Accepts.Where(x => x.cID == cIDBlock.Text).ToList();
-            Accept accept = accepts.Single(x => x.Department == "백신");
-            DataManager.Accepts.Remove(accept);
-            string vName = accept.Symptom.Substring(8);
-            MessageBox.Show("\"" + accept.Name + "\"" + "님의 " + vName + " 예약이 취소되었습니다.");
-            DataManager.Save();
+
+            if ( accepts.Exists(x => x.Department == "백신") ) {
+                Accept accept = accepts.Single(x => x.Department == "백신");
+                DataManager.Accepts.Remove(accept);
+                string vName = accept.Symptom.Substring(8);
+                MessageBox.Show(accept.Name + "님의 " + vName + " 예약이 취소되었습니다.");
+                DataManager.Save();
+                NavigationService.Navigate(new Uri("Menu.xaml", UriKind.Relative));
+            }
+            else {
+                MessageBox.Show("백신 예약을 하지 않았습니다.");
+            }
         }
     }
 }

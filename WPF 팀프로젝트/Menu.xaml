@@ -8,8 +8,16 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Menu">
 
-    <Grid>
-        <Button Content="고객정보" HorizontalAlignment="Left" Margin="144,145,0,0" VerticalAlignment="Top" Width="188" Height="144" Click="Button_Click"/>
-        <Button Content="접수현황" HorizontalAlignment="Left" Margin="489,145,0,0" VerticalAlignment="Top" Width="188" Height="144" Click="Button_Click_1"/>
+    <Grid Background="White">
+        <Button x:Name="c" Content="" HorizontalAlignment="Left" Margin="171,111,0,0" VerticalAlignment="Top" Width="167" Height="144" Click="Button_Click" FontSize="20" FontFamily="Arial Black" FontWeight="Bold" RenderTransformOrigin="1,0" Foreground="White" BorderBrush="#FFFAFAFA">
+            <Button.Background>
+                <ImageBrush ImageSource="고객.jpg"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="a" Content="" HorizontalAlignment="Left" Margin="447,111,0,0" VerticalAlignment="Top" Width="169" Height="144" Click="Button_Click_1" FontSize="20" FontWeight="Bold" Foreground="#FFF7F7F7" BorderBrush="#FFFBFBFB">
+            <Button.Background>
+                <ImageBrush ImageSource="접수.jpg"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>

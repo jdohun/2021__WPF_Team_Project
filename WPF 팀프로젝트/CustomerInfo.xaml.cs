@@ -33,56 +33,57 @@ namespace WPF_팀프로젝트 {
 
         //접수
         private void Button_Click( object sender, RoutedEventArgs e ) {
-            string cID = txtcID.Text;
-            if (cID.Trim() != "") //선택되었다면
-            {
-                NavigationService.Navigate(new Acceptance(cID));
+            if ( txtcID.Text.Trim() == "" ) { MessageBox.Show("접수하려는 고객의 아이디를 입력해주세요."); return; }
+            else {
+                if ( !DataManager.Customers.Exists(x => x.cID == txtcID.Text) ) { MessageBox.Show("존재하지 않는 고객입니다."); }
+                else {
+                    string cID = txtcID.Text;
+                    NavigationService.Navigate(new Acceptance(cID));
+                }
             }
-
-            //NavigationService.Navigate(new Uri("/Acceptance.xaml", UriKind.Relative));
         }
+
         //백신
         private void Button_Click_2( object sender, RoutedEventArgs e ) {
-            string cID = txtcID.Text;
-            if (cID.Trim() != "") //선택되었다면
-            {
-                NavigationService.Navigate(new Vaccine(cID));
+            if ( txtcID.Text.Trim() == "" ) { MessageBox.Show("백신예약하려는 고객의 아이디를 입력해주세요."); return; }
+            else { //선택되었다면
+                if ( !DataManager.Customers.Exists(x => x.cID == txtcID.Text) ) { MessageBox.Show("존재하지 않는 고객입니다."); }
+                else {
+                    string cID = txtcID.Text;
+                    NavigationService.Navigate(new Vaccine(cID));
+                }
             }
-
-
-            //NavigationService.Navigate(new Uri("/Vaccine.xaml", UriKind.Relative));
         }
 
         // 기록
         private void Button_Click_3( object sender, RoutedEventArgs e ) {
-            string cID = txtcID.Text;
-            if(cID.Trim() != "") //선택되었다면
-            {
-                NavigationService.Navigate(new CustomerRecord(cID));
+            if ( txtcID.Text.Trim() == "" ) { MessageBox.Show("기록을 확인하려는 고객의 아이디를 입력해주세요."); return; }
+            else { //선택되었다면
+                if ( !DataManager.Customers.Exists(x => x.cID == txtcID.Text) ) { MessageBox.Show("존재하지 않는 고객입니다."); }
+                else {
+                    string cID = txtcID.Text;
+                    NavigationService.Navigate(new CustomerRecord(cID));
+                }
             }
         }
 
         //검색
         private void TextBox_TextChanged( object sender, TextChangedEventArgs e ) {
-            try
-            {
+            try {
                 customerList.ItemsSource = factory.FindCustomers(searchBox.Text);
             }
-            catch (Exception ex)
-            {
+            catch ( Exception ex ) {
                 Console.WriteLine(ex.ToString());
             }
         }
 
         //삭제 버튼
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            if (txtcID.Text.Trim() == "") { MessageBox.Show("삭제하려는 고객의 아이디를 입력해주세요."); return; }
+        private void Button_Click_4( object sender, RoutedEventArgs e ) {
+            if ( txtcID.Text.Trim() == "" ) { MessageBox.Show("삭제하려는 고객의 아이디를 입력해주세요."); return; }
 
             Customer customer;
-            if (!DataManager.Customers.Exists(x => x.cID == txtcID.Text)) { MessageBox.Show("존재하지 않는 고객입니다."); }
-            else
-            {
+            if ( !DataManager.Customers.Exists(x => x.cID == txtcID.Text) ) { MessageBox.Show("존재하지 않는 고객입니다."); }
+            else {
                 customer = DataManager.Customers.Single(x => x.cID == txtcID.Text);
                 DataManager.Customers.Remove(customer);
                 MessageBox.Show(customer.Name + " 님의 정보가 삭제되었습니다.");
@@ -93,12 +94,10 @@ namespace WPF_팀프로젝트 {
         }
 
         //수정 버튼
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
+        private void Button_Click_5( object sender, RoutedEventArgs e ) {
             Customer customer;
-            if (!DataManager.Customers.Exists(x => x.cID == txtcID.Text)) { MessageBox.Show("존재하지 않는 고객입니다."); }
-            else
-            {
+            if ( !DataManager.Customers.Exists(x => x.cID == txtcID.Text) ) { MessageBox.Show("존재하지 않는 고객입니다."); }
+            else {
                 customer = DataManager.Customers.Single(x => x.cID == txtcID.Text);
                 customer.Name = txtName.Text;
                 customer.Birth = txtBirth.Text;
@@ -109,7 +108,7 @@ namespace WPF_팀프로젝트 {
                 DataManager.Save();
                 customerList.ItemsSource = null;
                 customerList.ItemsSource = DataManager.Customers;
-                
+
             }
         }
 

@@ -159,5 +159,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MicrosoftTeams-image %284%29.png" />
+    <Resource Include="MicrosoftTeams-image %285%29.png" />
+    <Resource Include="MicrosoftTeams-image %286%29.png" />
+    <Resource Include="MicrosoftTeams-image %287%29.png" />
+    <Resource Include="MicrosoftTeams-image %288%29.png" />
+    <Resource Include="고객.jpg" />
+    <Resource Include="돋보기.jpg" />
+    <Resource Include="접수.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

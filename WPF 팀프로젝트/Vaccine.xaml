@@ -14,34 +14,37 @@
         <XmlDataProvider x:Key="CustomerXml" Source="Customers.xml"/>
     </Page.Resources>
     <Grid DataContext="{Binding customerList, ElementName=customer}">
-        <TextBlock HorizontalAlignment="Left" Margin="79,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="cIDBlock" HorizontalAlignment="Left" Margin="120,25,0,0" TextWrapping="Wrap" Text="text"  VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="234,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="nameBlock" HorizontalAlignment="Left" Margin="275,25,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="385,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="birthBlock" HorizontalAlignment="Left" Margin="452,25,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="552,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="phoneBlock" HorizontalAlignment="Left" Margin="620,25,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="113,25,0,0" TextWrapping="Wrap" Text="cID" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <TextBlock x:Name="cIDBlock" HorizontalAlignment="Left" Margin="150,27,0,0" TextWrapping="Wrap" Text="text"  VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,25,0,0" TextWrapping="Wrap" Text="이름" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <TextBlock x:Name="nameBlock" HorizontalAlignment="Left" Margin="309,25,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="419,25,0,0" TextWrapping="Wrap" Text="생년월일" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <TextBlock x:Name="birthBlock" HorizontalAlignment="Left" Margin="494,27,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="586,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6" FontWeight="Bold"/>
+        <TextBlock x:Name="phoneBlock" HorizontalAlignment="Left" Margin="658,27,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="126,112,0,0" VerticalAlignment="Top" PreviewMouseUp="PreviewMouseUp"/>
-        <TextBlock x:Name="fixedDay" HorizontalAlignment="Left" Margin="79,317,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="162,317,0,0" TextWrapping="Wrap" Text="일" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock x:Name="fixedVaccine" HorizontalAlignment="Left" Margin="208,317,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="291,317,0,0" TextWrapping="Wrap" Text="백신" VerticalAlignment="Top" FontSize="16"/>
-        <GroupBox Header="백신 현황" HorizontalAlignment="Left" Height="253" Margin="383,85,0,0" VerticalAlignment="Top" Width="233">
-            <Grid Margin="2,0,-2,-13" >
-                <TextBlock x:Name="reservDay" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
-                <TextBlock HorizontalAlignment="Left" Margin="42,10,0,0" TextWrapping="Wrap" Text="일" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="3.713,-0.321"/>
-                <Button x:Name="button1" Content="화이자" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button1_Click"/>
-                <TextBlock x:Name="pfizer" HorizontalAlignment="Left" Margin="116,49,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
-                <Button x:Name="button2" Content="모더나" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button2_Click"/>
-                <TextBlock x:Name="Moderna" HorizontalAlignment="Left" Margin="116,94,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
-                <Button x:Name="button3" Content="AZ" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button3_Click"/>
-                <TextBlock x:Name="AZ" HorizontalAlignment="Left" Margin="116,137,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
-                <Button x:Name="button4" Content="얀센" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button4_Click"/>
-                <TextBlock x:Name="Janssen" HorizontalAlignment="Left" Margin="116,182,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
+        <TextBlock x:Name="fixedDay" HorizontalAlignment="Left" Margin="113,323,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFFC0303"/>
+        <TextBlock HorizontalAlignment="Left" Margin="162,323,0,0" TextWrapping="Wrap" Text="일" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6"/>
+        <TextBlock x:Name="fixedVaccine" HorizontalAlignment="Left" Margin="242,325,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF0845D8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="291,323,0,0" TextWrapping="Wrap" Text="백신" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6"/>
+        <GroupBox Header="백신 현황" HorizontalAlignment="Left" Height="227" Margin="383,70,0,0" VerticalAlignment="Top" Width="205" BorderBrush="#FF48A7C6">
+            <Grid Margin="2,0,-1.667,0" Height="202" VerticalAlignment="Top" >
+                <Button x:Name="button1" Content="화이자" HorizontalAlignment="Left" Margin="18,17,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button1_Click" Background="White" FontWeight="Bold" BorderBrush="#FF48A7C6" Foreground="#FF48A7C6"/>
+                <TextBlock x:Name="pfizer" HorizontalAlignment="Left" Margin="124,25,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329" Height="28"/>
+                <Button x:Name="button2" Content="모더나" HorizontalAlignment="Left" Margin="18,62,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button2_Click" Background="White" FontWeight="Bold" BorderBrush="#FF48A7C6" Foreground="#FF48A7C6"/>
+                <TextBlock x:Name="Moderna" HorizontalAlignment="Left" Margin="124,70,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
+                <Button x:Name="button3" Content="AZ" HorizontalAlignment="Left" Margin="18,105,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button3_Click" Background="White" FontWeight="Bold" BorderBrush="#FF48A7C6" Foreground="#FF48A7C6"/>
+                <TextBlock x:Name="AZ" HorizontalAlignment="Left" Margin="124,113,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
+                <Button x:Name="button4" Content="얀센" HorizontalAlignment="Left" Margin="18,150,0,0" VerticalAlignment="Top" Width="88" Height="36" FontSize="16" Click="button4_Click" Background="White" FontWeight="Bold" BorderBrush="#FF48A7C6" Foreground="#FF48A7C6"/>
+                <TextBlock x:Name="Janssen" HorizontalAlignment="Left" Margin="124,158,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.171,-1.329"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="button5" Content="예약하기" HorizontalAlignment="Left" Margin="358,360,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button5_Click" />
-        <Button x:Name="button6" Content="취소하기" HorizontalAlignment="Left" Margin="511,360,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button6_Click" />
+        <Button x:Name="button5" Content="예약하기" HorizontalAlignment="Left" Margin="374,312,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button5_Click" BorderBrush="#FFFAFAFA" Foreground="#FFFBFBFB" OpacityMask="White" Background="#FF48A7C6" />
+        <Button x:Name="button6" Content="취소하기" HorizontalAlignment="Left" Margin="509,312,0,0" VerticalAlignment="Top" Width="105" Height="42" FontSize="16" Click="button6_Click" Background="#FF48A7C6" BorderBrush="#FFFEFEFE" Foreground="White" />
+        <Button Content="" HorizontalAlignment="Left" Margin="27,19,0,0" VerticalAlignment="Top" Width="39" Height="36" RenderTransformOrigin="-0.667,-0.103" BorderBrush="{x:Null}" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="MicrosoftTeams-image (8).png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Page>
