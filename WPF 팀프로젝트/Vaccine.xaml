@@ -23,9 +23,9 @@
         <TextBlock HorizontalAlignment="Left" Margin="586,25,0,0" TextWrapping="Wrap" Text="전화번호" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6" FontWeight="Bold"/>
         <TextBlock x:Name="phoneBlock" HorizontalAlignment="Left" Margin="658,27,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Calendar x:Name="calendar" HorizontalAlignment="Left" Margin="126,112,0,0" VerticalAlignment="Top" PreviewMouseUp="PreviewMouseUp"/>
-        <TextBlock x:Name="fixedDay" HorizontalAlignment="Left" Margin="113,323,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFFC0303"/>
+        <TextBlock x:Name="fixedDay" HorizontalAlignment="Left" Margin="113,323,0,0" TextWrapping="Wrap" Text="__" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="162,323,0,0" TextWrapping="Wrap" Text="일" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6"/>
-        <TextBlock x:Name="fixedVaccine" HorizontalAlignment="Left" Margin="242,325,0,0" TextWrapping="Wrap" Text="text" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FF0845D8"/>
+        <TextBlock x:Name="fixedVaccine" HorizontalAlignment="Left" Margin="242,325,0,0" TextWrapping="Wrap" Text="__" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="291,323,0,0" TextWrapping="Wrap" Text="백신" VerticalAlignment="Top" FontSize="16" Foreground="#FF48A7C6"/>
         <GroupBox Header="백신 현황" HorizontalAlignment="Left" Height="227" Margin="383,70,0,0" VerticalAlignment="Top" Width="205" BorderBrush="#FF48A7C6">
             <Grid Margin="2,0,-1.667,0" Height="202" VerticalAlignment="Top" >

@@ -37,10 +37,10 @@ namespace WPF_팀프로젝트 {
             birthBlock.Text = customer.Birth;
             phoneBlock.Text = customer.Phone;
 
-            Load();
+            Load(cID);
         }
 
-        public void Load() {
+        public void Load(string cID) {
             List<Vaccination> vaccinations = DataManager.Vaccinations;
             pfizerC = vaccinations.Single(x => x.Name == "화이자").Count;
             ModernaC = vaccinations.Single(x => x.Name == "모더나").Count;
@@ -51,6 +51,20 @@ namespace WPF_팀프로젝트 {
             Moderna.Text = ModernaC.ToString();
             AZ.Text = AZC.ToString();
             Janssen.Text = JanssenC.ToString();
+
+            if ( DataManager.Accepts.Exists(x => x.cID == cID && x.Department == "백신") ) {
+                Accept accept = DataManager.Accepts.Single(x => x.cID == cID && x.Department == "백신");
+                string date = accept.Symptom;
+                string vaccine = date.Substring(8);
+                date = date.Substring(6, 2);
+
+                fixedDay.Text = date;
+                fixedVaccine.Text = vaccine;
+            }
+            else {
+                fixedDay.Text = "__";
+                fixedVaccine.Text = "__";
+            }
         }
 
         bool button1_clicked = false;
@@ -188,21 +202,27 @@ namespace WPF_팀프로젝트 {
                 vaccination.Count -= 1;
 
                 DateTime dt = (DateTime)calendar.SelectedDate;
-                String reservDay = dt.ToString("yy-MM-dd");
+                String fixedDay = dt.ToString("yy-MM-dd");
 
                 Accept accept = new Accept(){
                     cID = cIDBlock.Text,
                     Department = "백신",
                     Name = nameBlock.Text,
                     Num = aCount,
-                    Symptom = reservDay + fixedVaccine.Text
+                    Symptom = fixedDay + fixedVaccine.Text
                 };
 
                 DataManager.Accepts.Add(accept);
                 DataManager.Vaccinations.Add(vaccination);
                 DataManager.Save();
                 MessageBox.Show(nameBlock.Text + "님의 " + vaccination.Name + " 예약이 완료되었습니다.");
-                NavigationService.Navigate(new Uri("Menu.xaml", UriKind.Relative));
+
+                pfizer.Foreground = Brushes.Black;
+                Moderna.Foreground = Brushes.Black;
+                AZ.Foreground = Brushes.Black;
+                Janssen.Foreground = Brushes.Black;
+
+                Load(cIDBlock.Text);
             }
         }
 
@@ -213,9 +233,14 @@ namespace WPF_팀프로젝트 {
                 Accept accept = accepts.Single(x => x.Department == "백신");
                 DataManager.Accepts.Remove(accept);
                 string vName = accept.Symptom.Substring(8);
+                
+                Vaccination vaccine = DataManager.Vaccinations.Single(x => x.Name == vName);
+                vaccine.Count += 1;
+
                 MessageBox.Show(accept.Name + "님의 " + vName + " 예약이 취소되었습니다.");
                 DataManager.Save();
-                NavigationService.Navigate(new Uri("Menu.xaml", UriKind.Relative));
+                Load(cIDBlock.Text);
+                //NavigationService.Navigate(new Uri("Menu.xaml", UriKind.Relative));
             }
             else {
                 MessageBox.Show("백신 예약을 하지 않았습니다.");

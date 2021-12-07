@@ -22,54 +22,62 @@ namespace WPF_팀프로젝트 {
         public static void Load() {
             try {
                 // 고객 Customer
-                string customersOutput = File.ReadAllText(@"./Customers.xml");
-                XElement customersXElement = XElement.Parse(customersOutput);
+                if(File.Exists(( @"../../XML/Customers.xml" )) ) {
+                    string customersOutput = File.ReadAllText(@"../../XML/Customers.xml");
+                    XElement customersXElement = XElement.Parse(customersOutput);
 
-                Customers = ( from item in customersXElement.Descendants("customer")
-                          select new Customer() {
-                              cID = item.Element("cID").Value,
-                              Name = item.Element("name").Value,
-                              Birth = item.Element("birth").Value,
-                              Phone = item.Element("phone").Value,
-                              VaccineReserv = item.Element("vaccineReserv").Value
-                          } ).ToList<Customer>();
+                    Customers = ( from item in customersXElement.Descendants("customer")
+                              select new Customer() {
+                                  cID = item.Element("cID").Value,
+                                  Name = item.Element("name").Value,
+                                  Birth = item.Element("birth").Value,
+                                  Phone = item.Element("phone").Value,
+                                  VaccineReserv = item.Element("vaccineReserv").Value
+                              } ).ToList<Customer>();
+                }
 
                 // 기록 Record
-                string recordsOutput = File.ReadAllText(@"./Records.xml");
-                XElement recordsXElement = XElement.Parse(recordsOutput);
+                if ( File.Exists(( @"../../XML/Records.xml" )) ) {
+                    string recordsOutput = File.ReadAllText(@"../../XML/Records.xml");
+                    XElement recordsXElement = XElement.Parse(recordsOutput);
 
-                Records = (from item in recordsXElement.Descendants("record")
-                           select new Record()
-                           {
-                               cID = item.Element("cID").Value,
-                               Department = item.Element("department").Value,
-                               Symptom = item.Element("symptom").Value,
-                               Date = DateTime.Parse(item.Element("date").Value)
-                           }).ToList<Record>();
+                    Records = (from item in recordsXElement.Descendants("record")
+                               select new Record()
+                               {
+                                   cID = item.Element("cID").Value,
+                                   Department = item.Element("department").Value,
+                                   Symptom = item.Element("symptom").Value,
+                                   Date = DateTime.Parse(item.Element("date").Value)
+                               }).ToList<Record>();
+                }
 
                 // 백신 Vaccination
-                string vaccinationsOutput = File.ReadAllText(@"./Vaccinations.xml");
-                XElement vaccinationsXElement = XElement.Parse(vaccinationsOutput);
+                if ( File.Exists(( @"../../XML/Vaccinations.xml" )) ) {
+                    string vaccinationsOutput = File.ReadAllText(@"../../XML/Vaccinations.xml");
+                    XElement vaccinationsXElement = XElement.Parse(vaccinationsOutput);
 
-                Vaccinations = ( from item in vaccinationsXElement.Descendants("vaccination")
-                          select new Vaccination() {
-                              Name = item.Element("name").Value,
-                              Count = int.Parse(item.Element("count").Value)
-                          } ).ToList<Vaccination>();
+                    Vaccinations = ( from item in vaccinationsXElement.Descendants("vaccination")
+                              select new Vaccination() {
+                                  Name = item.Element("name").Value,
+                                  Count = int.Parse(item.Element("count").Value)
+                              } ).ToList<Vaccination>();
+                }
 
-               // 접수 현황 Accept
-                string acceptsOutput = File.ReadAllText(@"./Accepts.xml");
-                XElement acceptsXElement = XElement.Parse(acceptsOutput);
+                // 접수 현황 Accept
+                if ( File.Exists(( @"../../XML/Accepts.xml" )) ) { 
+                    string acceptsOutput = File.ReadAllText(@"../../XML/Accepts.xml");
+                    XElement acceptsXElement = XElement.Parse(acceptsOutput);
 
-                Accepts = (from item in acceptsXElement.Descendants("accept")
-                         select new Accept()
-                         {
-                             Department = item.Element("department").Value,
-                             Num = int.Parse(item.Element("num").Value),
-                             cID = item.Element("cID").Value,
-                             Name = item.Element("name").Value,
-                             Symptom = item.Element("symptom").Value
-                         }).ToList<Accept>();
+                    Accepts = (from item in acceptsXElement.Descendants("accept")
+                             select new Accept()
+                             {
+                                 Department = item.Element("department").Value,
+                                 Num = int.Parse(item.Element("num").Value),
+                                 cID = item.Element("cID").Value,
+                                 Name = item.Element("name").Value,
+                                 Symptom = item.Element("symptom").Value
+                             }).ToList<Accept>();
+                }
              
             }
             catch ( FileNotFoundException e ) {
@@ -143,10 +151,10 @@ namespace WPF_팀프로젝트 {
 
             acceptsOutput += "</accepts>";
 
-            File.WriteAllText(@"./Customers.xml", customersOutput);
-            File.WriteAllText(@"./Records.xml", recordsOutput);
-            File.WriteAllText(@"./Vaccinations.xml", vaccinationsOutput);
-            File.WriteAllText(@"./Accepts.xml", acceptsOutput);
+            File.WriteAllText(@"../../XML/Customers.xml", customersOutput);
+            File.WriteAllText(@"../../XML/Records.xml", recordsOutput);
+            File.WriteAllText(@"../../XML/Vaccinations.xml", vaccinationsOutput);
+            File.WriteAllText(@"../../XML/Accepts.xml", acceptsOutput);
         }
     }
 }

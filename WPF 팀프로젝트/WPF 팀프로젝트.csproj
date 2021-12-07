@@ -169,5 +169,11 @@
     <Resource Include="돋보기.jpg" />
     <Resource Include="접수.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XML\Accepts.xml" />
+    <Resource Include="XML\Customers.xml" />
+    <Resource Include="XML\Records.xml" />
+    <Resource Include="XML\Vaccinations.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

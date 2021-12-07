@@ -6,39 +6,31 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using WPF_팀프로젝트.classes;
 
-namespace WPF_팀프로젝트
-{
-    public class CustomersFactory
-    {
-        public IEnumerable<Customer> GetCustomers() // 고객 목록 반환
-        {
+namespace WPF_팀프로젝트 {
+    public class CustomersFactory {
+        public IEnumerable<Customer> GetCustomers() { // 고객 목록 반환
             return customers;
         }
-        public IEnumerable<Customer> FindCustomers(string searchString) // 고객 검색
-        {
+        public IEnumerable<Customer> FindCustomers( string searchString ) { // 고객 검색 
             return customers.Where(c => c.Name.Contains(searchString));
         }
         static IList<Customer> customers;
-        
 
-       static CustomersFactory()   // 생성자에서 고객 목록 가져옴
-        {
+
+        static CustomersFactory() { // 생성자에서 고객 목록 가져옴
             customers = DataManager.Customers;
         }
     }
-    public class Customer : Notifier
-    {
+    public class Customer : Notifier {
         //일련번호
         public string cID { get; set; }
 
         //이름
         private string name;
 
-        public string Name
-        {
+        public string Name {
             get { return name; }
-            set
-            {
+            set {
                 name = value;
                 OnPropertyChanged("Name");
             }
@@ -47,11 +39,9 @@ namespace WPF_팀프로젝트
         //생년월일
         private string birth;
 
-        public string Birth
-        {
+        public string Birth {
             get { return birth; }
-            set
-            {
+            set {
                 birth = value;
                 OnPropertyChanged("Birth");
             }
@@ -60,11 +50,9 @@ namespace WPF_팀프로젝트
         //전화번호
         private string phone;
 
-        public string Phone
-        {
+        public string Phone {
             get { return phone; }
-            set
-            {
+            set {
                 phone = value;
                 OnPropertyChanged("Phone");
             }
